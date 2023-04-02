@@ -1,0 +1,1 @@
+(()=>{"use strict";const e=document.getElementById("ce_button");null!=e&&e.addEventListener("click",(function(){window.open("https://www.example.com","example","width=400,height=300")}))})();

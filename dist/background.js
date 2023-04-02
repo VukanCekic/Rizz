@@ -1,0 +1,1 @@
+(()=>{"use strict";chrome.tabs.onUpdated.addListener(((t,e,o)=>{var s;"complete"===e.status&&/^http/.test(null!==(s=o.url)&&void 0!==s?s:"")&&chrome.scripting.executeScript({target:{tabId:t},files:["./popup.js"]}).then((()=>{console.log("INJECTED THE FOREGROUND SCRIPT.")})).catch((t=>{console.log(t)}))}))})();

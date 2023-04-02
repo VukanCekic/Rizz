@@ -1,0 +1,22 @@
+{
+    "name": "SummarEyes",
+    "description": "SummarEyes is a browser extension designed to help you quickly and easily summarize text on the web. With SummarEyes, you can save time and improve your productivity by getting the gist of long articles, blog posts, and other content in just a few clicks. Powered by AI technology like ChatGPT, SummarEyes uses advanced algorithms to analyze text and identify the most important information, which it then condenses into a clear and concise summary. Whether you're a student, researcher, or just someone who wants to stay up-to-date with the latest news and trends, SummarEyes is the perfect tool for anyone who wants to read more efficiently and effectively. Try it out today and see how it can transform the way you read and learn on the web!",
+    "version": "0.0.1",
+    "manifest_version": 3,
+    "background": {
+      "service_worker": "background.js"
+  },
+  "action": {
+   "default_popup": "popup.html"
+ },
+  "options_page": "options.html",
+  "permissions": [
+      "storage",
+      "activeTab",
+      "scripting",
+      "tabs"
+  ],
+  "host_permissions": [
+   "*://*/*"
+]
+}
