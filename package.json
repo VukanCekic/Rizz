@@ -1,7 +1,7 @@
 {
-  "name": "summareyes",
+  "name": "rizz",
   "version": "1.0.0",
-  "description": "SummarEyes is a browser extension designed to help you quickly and easily summarize text on the web. With SummarEyes, you can save time and improve your productivity by getting the gist of long articles, blog posts, and other content in just a few clicks. Powered by AI technology like ChatGPT, SummarEyes uses advanced algorithms to analyze text and identify the most important information, which it then condenses into a clear and concise summary. Whether you're a student, researcher, or just someone who wants to stay up-to-date with the latest news and trends, SummarEyes is the perfect tool for anyone who wants to read more efficiently and effectively. Try it out today and see how it can transform the way you read and learn on the web!",
+  "description": "RIZZ app is a revolutionary app that uses artificial intelligence to help you rizz up girls. Whether you need a catchy opener, a witty comeback, or a smooth closing line, RIZZ app has you covered. RIZZ app analyzes the girl's profile, messages, and preferences to generate the best possible responses for you. With RIZZ app, you can rizz up girls with confidence",
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack/webpack.config.js",
