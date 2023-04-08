@@ -1,1 +1,76 @@
+name: Deploy Service Lambda Functions V0
 
+on:
+  push:
+    branches: [master, dev/**]
+  pull_request:
+    branches: [master, dev/**]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Test
+    steps:
+      - name: 'Checkout Code [Default Branch]'
+        if: ${{ github.event_name != 'pull_request' }}
+        uses: actions/checkout@v3
+        with:
+          # We need to fetch all branches and commits so that Nx affected has a base to compare against.
+          fetch-depth: 0
+      - name: 'Checkout Code [Pull Request]'
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: actions/checkout@v3
+        with:
+          # By default, PRs will be checked-out based on the Merge Commit, but we want the actual branch HEAD.
+          ref: ${{ github.event.pull_request.head.sha }}
+          # We need to fetch all branches and commits so that Nx affected has a base to compare against.
+          fetch-depth: 0
+
+      # Set SHAs will automatically derive all SHAs for `nx affected` commands for any event
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands [Pull Request]
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: nrwl/nx-set-shas@v3
+        with:
+          main-branch-name: ${{ github.base_ref }}
+
+      - name: Extract branch name [Default branch]
+        if: ${{ github.event_name == 'push' }}
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+
+      # Set SHAs will automatically derive all SHAs for `nx affected` commands for any event
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands [Default Branch]
+        if: ${{ github.event_name == 'push' }}
+        uses: nrwl/nx-set-shas@v3
+        with:
+          main-branch-name: ${{ steps.extract_branch.outputs.branch }}
+
+      - name: 'Use Node.js 16.x'
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+
+      - name: Install Dependencies
+        run: npm install --immutable
+      - name: Build
+        run: |
+          npm run build
+  lint:
+    runs-on: ubuntu-latest
+    name: Lint
+
+    steps:
+      - name: 'Checkout Code'
+        uses: actions/checkout@v3
+
+      - name: 'Use Node.js 16.x'
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+
+      - name: Install Dependencies
+        if: steps.cache-node-modules.outputs.cache-hit != 'true' || steps.cache-yarn-cache.outputs.cache-hit != 'true'
+        run: npm install --immutable
+      - name: Run Lint
+        run: |
+          npm run lint
