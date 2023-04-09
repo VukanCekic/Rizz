@@ -3,11 +3,57 @@
   <head>
     <meta charset="UTF-8">
     <title>My Extension</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="popup.css">
   </head>
   <body>
     <div class="ce_main">
-      <div id="ce_button">Click me</div>
+
+      <div class="ce_head">
+        <img src="/assets/rizz-logo-white.svg" alt="Logo">
+
+
+        <div class="checkbox-container">
+
+            <div class="text">Dark mode</div>
+            <input type="checkbox" name="" id="">
+            <span class="check"></span>
+      
+        </div>
+  
+
+   
+      </div>
+
+      <div class="ce_info">
+
+        <div class="ce_info-block">
+          <label for="name">Name:</label>
+          <input class="ce_info-input" type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+      
+        
+     <div class="ce_info-block">
+      <label for="gender">Gender:</label>
+      <select class="ce_info-input" id="gender" name="gender" required>
+        <option value="">Select your gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+     </div>
+        
+     <div class="ce_info-block">
+      <label for="name">Name:</label>
+      <input class="ce_info-input" type="text" id="name" name="name" placeholder="Enter your name" required>
+    </div>
+  
+  <div class="ce_info-block">    
+    <label for="age">Age:</label>
+    <input class="ce_info-input" type="number" id="age" name="age" placeholder="Enter your age" min="0" max="120" required>
+  </div>
+        
+      </div>
+
     </div>
     <script src="popup.js"></script>
   </body>
