@@ -1,59 +1,74 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>My Extension</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="popup.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
     <div class="ce_main">
-
       <div class="ce_head">
-        <img src="/assets/rizz-logo-white.svg" alt="Logo">
-
+        <img id="logo" src="/assets/rizz-logo-black.svg" alt="Logo" />
 
         <div class="checkbox-container">
-
-            <div class="text">Dark mode</div>
-            <input type="checkbox" name="" id="">
-            <span class="check"></span>
-      
+          <div class="text">Dark mode</div>
+          <input class="checkbox" type="checkbox" name="" id="theme-switch-checkbox" />
+          <span class="check check--theme" id="theme-switch-span"></span>
         </div>
-  
-
-   
       </div>
 
       <div class="ce_info">
-
         <div class="ce_info-block">
           <label for="name">Name:</label>
-          <input class="ce_info-input" type="text" id="name" name="name" placeholder="Enter your name" required>
+          <input class="ce_info-input" type="text" id="name" name="name" placeholder="Sierra" required />
         </div>
-      
-        
-     <div class="ce_info-block">
-      <label for="gender">Gender:</label>
-      <select class="ce_info-input" id="gender" name="gender" required>
-        <option value="">Select your gender</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-      </select>
-     </div>
-        
-     <div class="ce_info-block">
-      <label for="name">Name:</label>
-      <input class="ce_info-input" type="text" id="name" name="name" placeholder="Enter your name" required>
-    </div>
-  
-  <div class="ce_info-block">    
-    <label for="age">Age:</label>
-    <input class="ce_info-input" type="number" id="age" name="age" placeholder="Enter your age" min="0" max="120" required>
-  </div>
-        
-      </div>
 
+        <div class="ce_info-block">
+          <label for="age">Age:</label>
+          <input
+            class="ce_info-input"
+            type="number"
+            id="age"
+            name="age"
+            placeholder="19"
+            min="0"
+            max="120"
+            required
+          />
+        </div>
+
+        <div class="ce_info-block">
+          <label for="gender">Gender:</label>
+          <select class="ce_info-input" id="gender" name="gender" required>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+          </select>
+        </div>
+
+        <div class="ce_info-block">
+          <label for="interests">Interests:</label>
+          <input class="ce_info-input" type="text" id="interests" name="interests" placeholder="Dogs, Sports" required />
+        </div>
+
+   
+
+        <div class="checkbox-container">
+          <div class="text">Serious</div>
+          <input class="checkbox" type="checkbox" name="" id="response-type-checkbox" />
+          <span class="check check--type" id="response-type-span"></span>
+          <div class="text">Funny</div>
+        </div>
+
+        <div class="textbox-container">
+          <input class="textbox" type="text">
+            <button id="ce_button" class="ce_button">Generate an Ice-Breaker</button>
+            <button class="ce_button">Retry</button>
+        </div>
+        
+
+
+      </div>
     </div>
     <script src="popup.js"></script>
   </body>

@@ -5,11 +5,17 @@
   box-sizing: border-box;
 }
 
-:root {
-  --color-white: #FFFFFF;
-  --background: rgba(51, 51, 51, 0.8);
-  --color-main: ##EE3E75;
 
+:root {
+  --color-text: #333333;
+  --background: rgba(255, 255, 255, 0.8);
+  --color-checkbox-theme: #333333;
+  --color-checkbox-type: #ee3e75;
+  --color-checkbox-circle: #FFFFFF;
+  --gradient: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.4) 100%), url(assets/rizz-bg.jpg), #333333;
+  --color-main: #ee3e75;
+  --check-before-right: 51.06%;
+  --check-before-left: 4.26%;
 }
 
 /* Remove default margin and padding */
@@ -34,7 +40,7 @@ dd {
   padding: 0;
 }
 
-body{
+body {
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -58,8 +64,8 @@ a {
 
 /* Remove default button styles */
 button,
-input[type="button"],
-input[type="submit"] {
+input[type='button'],
+input[type='submit'] {
   border: none;
   background: none;
   font: inherit;
@@ -88,16 +94,15 @@ textarea {
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
 }
 
-.ce_head{
+.ce_head {
   margin-top: 17px;
 }
 
-
 .ce_main {
-  width: 330px;
-  height: 500px;
-  background: linear-gradient(180deg, #1E1E1E 0%, var(--background) 100%), url("/assets/rizz-bg.jpg"), #333333;
-  background-size: contain;
+  width: 360px;
+  height: 600px;
+  background: var(--gradient);
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   display: flex;
@@ -106,12 +111,12 @@ textarea {
   gap: 12px;
 }
 
-.text{
-  color: white;
+.text {
+  color: var(--color-text);
   font-size: 15px;
 }
 
-.ce_info{
+.ce_info {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -122,33 +127,31 @@ textarea {
 
 input {
   padding: 10px;
-  color: var(--color-white);
+  color: var(--color-text);
 }
 
-select{
+select {
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
-  color: var(--color-white);
+  color: var(--color-text);
 }
-
 
 .toggle-container {
   position: relative;
 }
 
-
-label{
-  color: var(--color-white);
+label {
+  color: var(--color-text);
   font-size: 15px;
 }
 
 input::placeholder {
-  color: var(--color-white);
+  color: var(--color-text);
 }
 
-.ce_info-block{
+.ce_info-block {
   display: flex;
   align-items: center;
   width: 90%;
@@ -158,7 +161,7 @@ input::placeholder {
   margin-right: 8px;
 }
 
-.ce_info-input{
+.ce_info-input {
   background: var(--background);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 12.5px;
@@ -166,43 +169,81 @@ input::placeholder {
   height: 26px;
 }
 
-input[type="checkbox"]{
+input[type='checkbox'] {
   display: none;
 }
 
-.checkbox-container{
+.checkbox-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 10px;
 }
 
-.check{
-  margin-left: 11px;
+.check {
   position: relative;
   display: block;
   width: 47px;
   height: 25px;
-  background: #EE3E75;
   border-radius: 12.5px;
   cursor: pointer;
   overflow: hidden;
   transition: ease-in 0,5s;
 }
 
-input[type="checkbox"]:checked ~ .check{
-  background: var(--color-white);
+.check--theme{
+  background: var(--color-checkbox-theme);
 }
 
-.check:before{
-  content: "";
+.check--type{
+  background: var(--color-checkbox-type);
+}
+
+
+.check:before {
+  content: '';
   position: absolute;
-  left: 51.06%;
-  right: 4.26%;
+  right: var(--check-before-right);
+  left: var(--check-before-left);
   top: 8%;
   bottom: 8%;
-  background: #333333;
+  background: var(--color-checkbox-circle);
   height: 21px;
   width: 21px;
   border-radius: 50%;
+}
 
+.textbox-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 23px;
+}
+
+.textbox {
+  width: 330px;
+  height: 176px;
+
+  background: var(--background);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12.5px;
+}
+
+.ce_button {
+  width: 330px;
+  height: 40px;
+
+  background: #ee3e75;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12.5px;
+
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  text-align: center;
+
+  color: #ffffff;
 }
